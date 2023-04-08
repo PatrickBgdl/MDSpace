@@ -43,8 +43,35 @@
                 Hier jetzt noch paar Dinge, die dich vielleicht interessieren!
             </p>
             <div style="padding-bottom: 56.25%; position: relative;"><iframe width="100%" height="100%" src="https://player.twitch.tv/?autoplay=false&channel=MDS666_&parent=patrickbgdl.github.io" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"  style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"><small>Powered by <a href="https://embed.tube/embed-code-generator/twitch/">twitch embed</a> generator</small></iframe></div>
-            <br><br><br>
-            <p style="font-size: 5%;">
+            <p>
+                Einer meiner Favorites
+            </p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5BiypsiapBLRQELkSFBby2?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <p>Meine aktuelle Faceit Elo</p>
+            <a id="elo" href="https://www.faceit.com/en/players/MDS666" target="_blank"></a>
+            <script>
+                fetch('https://open.faceit.com/data/v4/players?nickname=MDS666', {
+                headers: {
+                  "Authorization": 'Bearer 679cff56-8f22-42c0-b877-3debe5a0b1e3',
+                  "Content-Type": "application/json"
+                }
+              })
+              .then(response => response.json())
+              .then(data => {
+                const elo = data.games.csgo.faceit_elo;
+                const level = data.games.csgo.skill_level;
+                document.getElementById("elo").textContent = elo;
+                document.getElementById("level").textContent = level;
+              })
+              .catch(error => {
+              console.error(error);
+              })
+            </script>
+
+            <p></p>
+            <a href="changelog.html"><button>Changelog</button></a>
+            <br><br>
+            <p style="font-size: 2.5%;">
                 Copyright (c) 2023 by Zach Saucier (https://codepen.io/ZachSaucier/pen/kPLeoZ)
             </p>
           </div>
